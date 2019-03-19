@@ -12,13 +12,10 @@ self.addEventListener('message', e => {
       self.socket.addEventListener('open', handleSocketOpen);
       self.socket.addEventListener('message', handleSocketMessage);
 
-      break;
-    case 'start':
       console.log('starting loop worker loop');
-      
       self.interval = self.setInterval(loop, 30);
       break;
-    case 'stop':
+    case 'disconnect':
       self.clearInterval(self.interval);
       break;
     case 'keydown':
@@ -45,7 +42,6 @@ const handleSocketMessage = e => {
 
 const loop = () => {
   if (self.isPressed.length > 0) {
-    console.log(self.isPressed);
     self.socket.send(self.isPressed);
   }
 };

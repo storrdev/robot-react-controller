@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import loopWorker from './loop.worker';
+import socketWorker from './socket.worker';
 
 import ArrowKey from './components/ArrowKey';
 import StatusBox from './components/StatusBox';
@@ -24,15 +24,13 @@ class App extends Component {
 
   componentDidMount() {
     if (window.Worker) {
-      // Let's start the web worker loop right here
-      this.worker = new loopWorker();
+      // Let's start the web worker right here
+      this.worker = new socketWorker();
 
-      // Connect to web socket server
+      // Connect to web socket server and start key listening loop
       this.worker.postMessage({ command: 'connect' });
 
-      // Start loop
-      this.worker.postMessage({ command: 'start' });
-
+      // Handl messages sent back from the socket worker
       this.worker.addEventListener('message', this.handleWorkerMessage.bind(this));
     }
   }
