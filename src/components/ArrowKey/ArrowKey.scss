@@ -1,0 +1,19 @@
+.arrow-key {
+  flex: 0 0 33.3%;
+  // padding: 32px;
+  display: flex;
+  justify-content: center;
+
+  &.up {
+    flex: 1 1 100%;
+  }
+
+  &.pressed {
+    background: rgba(0, 128, 0, 0.5);
+  }
+
+  img {
+    width: 72px;
+    height: 72px;
+  }
+}

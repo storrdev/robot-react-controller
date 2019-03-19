@@ -1,0 +1,14 @@
+.App {
+  height: 100%;
+  position: relative;
+  width: 100%;
+
+  .arrow-keys {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 320px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
