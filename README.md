@@ -1,68 +1,73 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React Robot Controller
 
-## Available Scripts
+A React application for controlling a robot using websockets.
 
-In the project directory, you can run:
+## Getting Started
 
-### `npm start`
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Prerequisites
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+You will need node.js installed on your development machine. I'm currently using node v10.x.x while developing this.
 
-### `npm test`
+A websocket server ready to recieve commands for your robot. If you are using a raspberry pi (like me) you might be interested in something like [python-websocket-server](https://github.com/Pithikos/python-websocket-server), which you can install into a python project using the following command:
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+pip install git+https://github.com/Pithikos/python-websocket-server
+```
 
-### `npm run build`
+### Installing
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+A step by step series of examples that tell you how to get a development env running
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+First you will need to get the repository onto your machine by either downloading the zip or cloning.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+git clone https://github.com/storrdev/robot-react-controller
+```
 
-### `npm run eject`
+Once you have the repository on your machine, open the directory that was created
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+cd react-robot-controller
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Then install all the dependencies
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+npm install
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+And finally start the development server
 
-## Learn More
+```
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Once the development server is up and running, you should be able to see the react application running at [http://localhost:3000](http://localhost:3000)
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Deployment
 
-### Analyzing the Bundle Size
+To build the package of the react application for hosting somewhere like github pages or amazon s3 just run the following command from the project root:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+```
+npm run build
+```
 
-### Making a Progressive Web App
+## Built With
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+* [Create React App](https://github.com/facebook/create-react-app) - The web framework used
 
-### Advanced Configuration
+## Contributing
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+Please read submit a pull request with a detailed description of your changes and the reason behind them.
 
-### Deployment
+## Authors
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+* **Stephen Orr** - *Initial work*
 
-### `npm run build` fails to minify
+## License
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details

@@ -1,4 +1,7 @@
+$pressed: rgba(0, 128, 0, 0.5);
+
 .arrow-key {
+  cursor: pointer;
   flex: 0 0 33.3%;
   // padding: 32px;
   display: flex;
@@ -9,7 +12,15 @@
   }
 
   &.pressed {
-    background: rgba(0, 128, 0, 0.5);
+    background: $pressed;
+  }
+
+  &:hover {
+    background: rgba(0, 128, 0, 0.2);
+  }
+
+  &:active {
+    background: $pressed;
   }
 
   img {

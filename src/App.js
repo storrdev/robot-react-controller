@@ -5,6 +5,7 @@ import socketWorker from './socket.worker';
 import ArrowKey from './components/ArrowKey';
 import StatusBox from './components/StatusBox';
 
+import directions from './direction-translations.json';
 import keys from './key-translations.json';
 
 import './App.scss';
@@ -97,6 +98,14 @@ class App extends Component {
     }
   }
 
+  handleArrowMouseDown(direction) {
+    this.handleKeyDown({ key: directions[direction] });
+  }
+
+  handleArrowMouseUp(direction) {
+    this.handleKeyUp({ key: directions[direction] });
+  }
+
   render() {
     const { connected, upPressed, leftPressed, reversePressed, rightPressed } = this.state;
 
@@ -106,10 +115,30 @@ class App extends Component {
           connected={connected}
         />
         <div className="arrow-keys">
-          <ArrowKey direction="up" pressed={upPressed} />
-          <ArrowKey direction="left" pressed={leftPressed} />
-          <ArrowKey direction="down" pressed={reversePressed} />
-          <ArrowKey direction="right" pressed={rightPressed} />
+          <ArrowKey
+            direction="up"
+            pressed={upPressed}
+            onMouseDown={e => this.handleArrowMouseDown('up')}
+            onMouseUp={e => this.handleArrowMouseUp('up')}
+          />
+          <ArrowKey
+            direction="left"
+            pressed={leftPressed}
+            onMouseDown={e => this.handleArrowMouseDown('left')}
+            onMouseUp={e => this.handleArrowMouseUp('left')}
+          />
+          <ArrowKey
+            direction="down"
+            pressed={reversePressed}
+            onMouseDown={e => this.handleArrowMouseDown('down')}
+            onMouseUp={e => this.handleArrowMouseUp('down')}
+          />
+          <ArrowKey
+            direction="right"
+            pressed={rightPressed}
+            onMouseDown={e => this.handleArrowMouseDown('right')}
+            onMouseUp={e => this.handleArrowMouseUp('right')}
+          />
         </div>
       </div>
     );

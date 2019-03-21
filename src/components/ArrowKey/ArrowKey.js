@@ -30,7 +30,7 @@ class ArrowKey extends Component {
   }
 
   render() {
-    const { direction, pressed } = this.props;
+    const { direction, pressed, ...other } = this.props;
 
     const classes = ['arrow-key'];
 
@@ -43,7 +43,7 @@ class ArrowKey extends Component {
     }
 
     return (
-      <div className={classes.join(' ')}>
+      <div className={classes.join(' ')} {...other}>
         <img src={this.getArrowIcon()} alt={direction} />
       </div>
     );
