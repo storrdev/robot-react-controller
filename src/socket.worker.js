@@ -11,6 +11,7 @@ self.addEventListener('message', e => {
 
       self.socket.addEventListener('open', handleSocketOpen);
       self.socket.addEventListener('message', handleSocketMessage);
+      self.socket.addEventListener('close', handleSocketClose);
 
       console.log('starting loop worker loop');
       self.interval = self.setInterval(loop, 30);
@@ -34,11 +35,15 @@ self.addEventListener('message', e => {
 const handleSocketOpen = e => {
   postMessage('connected');
   self.socket.send('Hello Server!');
-}
+};
 
 const handleSocketMessage = e => {
   console.log('Message from server', e.data);
-}
+};
+
+const handleSocketClose = e => {
+  postMessage('disconnected');
+};
 
 const loop = () => {
   if (self.isPressed.length > 0) {
