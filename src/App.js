@@ -18,7 +18,10 @@ class App extends Component {
 
     this.state = {
       connected: false,
-      upPressed: false
+      upPressed: false,
+      leftPressed: false,
+      reversePressed: false,
+      rightPressed: false
     };
   }
 
@@ -54,6 +57,15 @@ class App extends Component {
         case 'FORWARD':
           this.setState({ upPressed: true });
           break;
+        case 'LEFT':
+          this.setState({ leftPressed: true });
+          break;
+        case 'REVERSE':
+          this.setState({ reversePressed: true });
+          break;
+        case 'RIGHT':
+          this.setState({ rightPressed: true });
+          break;
         default:
           break;
       }
@@ -68,6 +80,15 @@ class App extends Component {
         case 'FORWARD':
           this.setState({ upPressed: false });
           break;
+        case 'LEFT':
+          this.setState({ leftPressed: false });
+          break;
+        case 'REVERSE':
+          this.setState({ reversePressed: false });
+          break;
+        case 'RIGHT':
+          this.setState({ rightPressed: false });
+          break;
         default:
           break;
       }
@@ -77,7 +98,7 @@ class App extends Component {
   }
 
   render() {
-    const { connected, upPressed } = this.state;
+    const { connected, upPressed, leftPressed, reversePressed, rightPressed } = this.state;
 
     return (
       <div className="App">
@@ -86,9 +107,9 @@ class App extends Component {
         />
         <div className="arrow-keys">
           <ArrowKey direction="up" pressed={upPressed} />
-          <ArrowKey direction="left" />
-          <ArrowKey direction="down" />
-          <ArrowKey direction="right" />
+          <ArrowKey direction="left" pressed={leftPressed} />
+          <ArrowKey direction="down" pressed={reversePressed} />
+          <ArrowKey direction="right" pressed={rightPressed} />
         </div>
       </div>
     );
